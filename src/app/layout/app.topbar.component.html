@@ -1,14 +1,19 @@
 <div class="layout-topbar">
-    <a class="layout-topbar-logo" routerLink="">
-        <img
+    <a class="layout-topbar-logo" [routerLink]="['/dashboard']">
+        <!-- <img
             src="assets/layout/images/{{
                 layoutService.config.colorScheme === 'light'
                     ? 'logo-dark'
                     : 'logo-white'
             }}.png"
             alt="logo"
+        /> -->
+        <img
+            src="https://www.judosport.gr/static/media/mainlogo.a1971042.png"
+            alt="logo"
+            style="background-color: black"
         />
-        <span>SportThrived</span>
+        <span>{{ TrainerTeamName }}</span>
     </a>
 
     <button
