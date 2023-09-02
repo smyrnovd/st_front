@@ -7,17 +7,32 @@ import { AppLayoutComponent } from './layout/app.layout.component';
     imports: [
         RouterModule.forRoot(
             [
+                // {
+                //     path: '',
+                //     redirectTo: 'landing',
+                //     pathMatch: 'full',
+                // },
                 {
                     path: '',
+                    loadChildren: () =>
+                        import('./crm/components/landing/landing.module').then(
+                            (m) => m.LandingModule
+                        ),
+                },
+                {
+                    path: 'auth',
+                    loadChildren: () =>
+                        import('./crm/components/auth/auth.module').then(
+                            (m) => m.AuthModule
+                        ),
+                },
+
+                {
+                    path: 'dashboard',
                     component: AppLayoutComponent,
                     children: [
                         {
                             path: '',
-                            redirectTo: '',
-                            pathMatch: 'full',
-                        },
-                        {
-                            path: 'dashboard',
                             loadChildren: () =>
                                 import(
                                     './crm/components/dashboard/dashboard.module'
@@ -39,20 +54,7 @@ import { AppLayoutComponent } from './layout/app.layout.component';
                         },
                     ],
                 },
-                {
-                    path: 'auth',
-                    loadChildren: () =>
-                        import('./crm/components/auth/auth.module').then(
-                            (m) => m.AuthModule
-                        ),
-                },
-                {
-                    path: 'landing',
-                    loadChildren: () =>
-                        import('./crm/components/landing/landing.module').then(
-                            (m) => m.LandingModule
-                        ),
-                },
+
                 { path: 'notfound', component: NotfoundComponent },
                 { path: '**', redirectTo: '/notfound' },
             ],
