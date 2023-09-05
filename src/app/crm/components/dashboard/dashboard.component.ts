@@ -9,25 +9,24 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
     templateUrl: './dashboard.component.html',
 })
 export class DashboardComponent implements OnInit, OnDestroy {
-
     items!: MenuItem[];
 
     products!: Product[];
 
     subscription!: Subscription;
+    date: string;
 
-    constructor(private productService: ProductService, public layoutService: LayoutService) {
-       
-    }
+    constructor(
+        private productService: ProductService,
+        public layoutService: LayoutService
+    ) {}
 
     ngOnInit() {
+        this.productService
+            .getProductsSmall()
+            .then((data) => (this.products = data));
 
-        this.productService.getProductsSmall().then(data => this.products = data);
-
-        this.items = [
-           
-            { label: 'Clear all', icon: 'pi pi-fw pi-trash' }
-        ];
+        this.items = [{ label: 'Clear all', icon: 'pi pi-fw pi-trash' }];
     }
 
     ngOnDestroy() {
