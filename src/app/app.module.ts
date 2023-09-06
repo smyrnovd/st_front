@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PathLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AppLayoutModule } from './layout/app.layout.module';
+import { AppLayoutModule } from './shared/ui/layout/app.layout.module';
 import { NotfoundComponent } from './crm/components/notfound/notfound.component';
 import { ProductService } from './crm/service/product.service';
 import { CountryService } from './crm/service/country.service';

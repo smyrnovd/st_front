@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LayoutService } from 'src/app/layout/service/app.layout.service';
+import { LayoutService } from 'src/app/shared/ui/layout/service/app.layout.service';
 
 @Component({
     selector: 'app-registration',
