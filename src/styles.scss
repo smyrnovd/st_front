@@ -5,7 +5,8 @@
 // @tailwind utilities;
 
 $gutter: 1rem; //for primeflex grid system
-@import "assets/layout/styles/layout/layout.scss";
+@import "app/assets/styles/layout/layout.scss";
+// @import "app/assets/styles/theme/lara-light-blue/theme.css";
 
 /* PrimeNG */
 @import "../node_modules/primeng/resources/primeng.min.css";
@@ -13,6 +14,6 @@ $gutter: 1rem; //for primeflex grid system
 @import "../node_modules/primeicons/primeicons.css";
 
 /* Demos */
-// @import "assets/crm/styles/flags/flags.css";
-// @import "assets/crm/styles/badges.scss";
-// @import "assets/crm/styles/code.scss";
+// @import "src/app/assets/styles/flags/flags.css";
+// @import "src/app/assets/crm/styles/badges.scss";
+// @import "src/app/assets/crm/styles/code.scss";

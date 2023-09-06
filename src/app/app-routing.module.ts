@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { NotfoundComponent } from './crm/components/notfound/notfound.component';
-import { AppLayoutComponent } from './shared/ui/layout/app.layout.component';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { AppLayoutComponent } from './shared/layout/app.layout.component';
 
 @NgModule({
     imports: [
@@ -15,14 +15,14 @@ import { AppLayoutComponent } from './shared/ui/layout/app.layout.component';
                 {
                     path: '',
                     loadChildren: () =>
-                        import('./crm/components/landing/landing.module').then(
+                        import('./pages/landing/landing.module').then(
                             (m) => m.LandingModule
                         ),
                 },
                 {
                     path: 'auth',
                     loadChildren: () =>
-                        import('./crm/components/auth/auth.module').then(
+                        import('./pages/auth/auth.module').then(
                             (m) => m.AuthModule
                         ),
                 },
@@ -35,22 +35,22 @@ import { AppLayoutComponent } from './shared/ui/layout/app.layout.component';
                             path: '',
                             loadChildren: () =>
                                 import(
-                                    './crm/components/dashboard/dashboard.module'
+                                    './pages/dashboard/dashboard.module'
                                 ).then((m) => m.DashboardModule),
                         },
                         {
                             path: 'documentation',
                             loadChildren: () =>
                                 import(
-                                    './crm/components/documentation/documentation.module'
+                                    './pages/documentation/documentation.module'
                                 ).then((m) => m.DocumentationModule),
                         },
                         {
                             path: 'pages',
                             loadChildren: () =>
-                                import(
-                                    './crm/components/pages/pages.module'
-                                ).then((m) => m.PagesModule),
+                                import('./pages/pages/pages.module').then(
+                                    (m) => m.PagesModule
+                                ),
                         },
                     ],
                 },

@@ -24,7 +24,7 @@
                         "tsConfig": "tsconfig.app.json",
                         "inlineStyleLanguage": "scss",
                         "aot": true,
-                        "assets": ["src/favicon.ico", "src/assets"],
+                        "assets": ["src/favicon.ico", "src/app/assets"],
                         "styles": ["src/styles.scss"],
                         "scripts": [
                             "node_modules/prismjs/prism.js",
@@ -98,7 +98,7 @@
                         "assets": [
                             "src/favicon.ico",
                             "src/upload.php",
-                            "src/assets"
+                            "src/app/assets"
                         ]
                     }
                 },
