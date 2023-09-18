@@ -6,7 +6,7 @@
             src="app/assets/images/full-logo-dark.png"
             alt="logo"
             class="mb-5 w-16rem flex-shrink-0 cursor-pointer"
-            [routerLink]="['/']"
+            routerLink="/"
         />
         <div
             style="
@@ -24,19 +24,9 @@
                 style="border-radius: 53px"
             >
                 <div class="text-center mb-5">
-                    <!--
-                    <img
-                        src="app/assets/demo/images/login/avatar.png"
-                        alt="Image"
-                        height="50"
-                        class="mb-3"
-                    />
-                    -->
                     <div class="text-900 text-3xl font-medium mb-3">
                         Registration
                     </div>
-
-                    <span class="text-600 font-medium">New user</span>
                 </div>
 
                 <div>
@@ -79,7 +69,7 @@
                             [(ngModel)]="password"
                             placeholder="Password"
                             [toggleMask]="true"
-                            styleClass="mb-5"
+                            styleClass="mb-3"
                             inputStyleClass="w-full p-3 md:w-30rem"
                         ></p-password>
                     </div>
@@ -101,14 +91,16 @@
                         class="w-full p-3 text-xl"
                         [routerLink]="['/']"
                     ></button>
-                    <div class="text-center mt-4">
+                    <div
+                        class="flex gap-2 flex-row align-items-center justify-content-center mt-4"
+                    >
+                        <div>Already have an account?</div>
                         <button
                             pButton
                             pRipple
-                            icon="pi pi-arrow-left"
-                            label="Go to login"
+                            label="login"
                             class="p-button-text"
-                            [routerLink]="['/auth/login']"
+                            routerLink="/auth/login"
                         ></button>
                     </div>
                 </div>
