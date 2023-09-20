@@ -10,6 +10,7 @@ import { StyleClassModule } from 'primeng/styleclass';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { DashboardsRoutingModule } from './dashboard-routing.module';
 import { CalendarModule } from 'primeng/calendar';
+import { AthletesComponent } from './athletes/athletes.component';
 
 @NgModule({
     imports: [
@@ -24,6 +25,6 @@ import { CalendarModule } from 'primeng/calendar';
         DashboardsRoutingModule,
         CalendarModule,
     ],
-    declarations: [DashboardComponent],
+    declarations: [DashboardComponent, AthletesComponent],
 })
 export class DashboardModule {}
