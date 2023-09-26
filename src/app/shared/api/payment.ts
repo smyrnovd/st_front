@@ -1,6 +1,6 @@
-export interface Payment {
+export interface payment {
     id?: string;
-    code?: string;
+    date?: string;
     name?: string;
     description?: string;
     price?: number;

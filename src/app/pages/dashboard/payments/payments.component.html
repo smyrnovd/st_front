@@ -2,53 +2,29 @@
     <p-table [value]="payments" dataKey="id" [tableStyle]="{ 'min-width': '50rem' }">
         <ng-template pTemplate="header">
             <tr>
-                <th style="width:25%">Code</th>
+                <th style="width:25%">Date</th>
                 <th style="width:25%">Name</th>
-                <th style="width:25%">Inventory Status</th>
                 <th style="width:25%">Price</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-payment let-editing="editing">
             <tr>
-                <td [pEditableColumn]="payment.code" pEditableColumnField="code">
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <input pInputText type="text" [(ngModel)]="payment.code" />
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            {{ payment.code }}
-                        </ng-template>
-                    </p-cellEditor>
+                <td [pEditableColumn]="payment.date" pEditableColumnField="code">
+                   
+                            {{ payment.date }}
+
+
                 </td>
                 <td [pEditableColumn]="payment.name" pEditableColumnField="name">
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <input pInputText type="text" [(ngModel)]="payment.name" required />
-                        </ng-template>
-                        <ng-template pTemplate="output">
+                    
                             {{ payment.name }}
-                        </ng-template>
-                    </p-cellEditor>
+                      
                 </td>
-                <td [pEditableColumn]="payment.inventoryStatus" pEditableColumnField="inventoryStatus">
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <input pInputText [(ngModel)]="payment.inventoryStatus" />
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            {{ payment.inventoryStatus }}
-                        </ng-template>
-                    </p-cellEditor>
-                </td>
+                
                 <td [pEditableColumn]="payment.price" pEditableColumnField="price">
-                    <p-cellEditor>
-                        <ng-template pTemplate="input">
-                            <input pInputText type="text" [(ngModel)]="payment.price" />
-                        </ng-template>
-                        <ng-template pTemplate="output">
-                            {{ payment.price | currency: 'USD' }}
-                        </ng-template>
-                    </p-cellEditor>
+                   
+                            {{ payment.price | currency: 'EUR' }}
+                       
                 </td>
             </tr>
         </ng-template>

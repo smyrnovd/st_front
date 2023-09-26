@@ -12,6 +12,7 @@ import { IconService } from './shared/service/icon.service';
 import { NodeService } from './shared/service/node.service';
 import { PhotoService } from './shared/service/photo.service';
 import { ButtonModule } from 'primeng/button';
+import { PaymentService } from './shared/service/payment.service';
 
 @NgModule({
     declarations: [AppComponent, NotfoundComponent],
@@ -25,6 +26,7 @@ import { ButtonModule } from 'primeng/button';
         NodeService,
         PhotoService,
         ProductService,
+        PaymentService
     ],
     bootstrap: [AppComponent],
 })
