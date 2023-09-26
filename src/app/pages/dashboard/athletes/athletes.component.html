@@ -17,7 +17,8 @@
     >
         <ng-template pTemplate="caption">
             <div class="table-header">
-                List of Customers
+                <button type="button" pButton pRipple icon="pi pi-plus"  class="mr-auto" pTooltip="New" tooltipPosition="bottom"></button>
+
                 <span class="p-input-icon-left">
                     <i class="pi pi-search"></i>
                     <input class="search-input" pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Global Search" />

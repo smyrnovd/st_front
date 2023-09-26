@@ -16,35 +16,35 @@ export class PaymentService {
                 date: '29/02/2022',
                 name: 'Antonis',
                 description: 'Antonis Description',
-                price: 65,
+                price: 25,
                
             }, {
                 id: '3',
                 date: '09/02/2023',
                 name: 'Trifon',
                 description: 'Trifon Description',
-                price: 65,
+                price: 70,
                
             }, {
                 id: '4',
                 date: '01/07/2022',
                 name: 'Amalia',
                 description: 'Amalia Description',
-                price: 65,
+                price: 15,
                
             }, {
                 id: '5',
                 date: '17/08/2023',
                 name: 'Trifon',
                 description: 'Trifon Description',
-                price: 65,
+                price: 30,
                
             }, {
                 id: '6',
                 date: '12/09/2023',
                 name: 'Natalia',
                 description: 'Natalia Description',
-                price: 65,
+                price: 55,
                
             },
         ];
