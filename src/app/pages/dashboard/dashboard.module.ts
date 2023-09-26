@@ -11,6 +11,7 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { DashboardsRoutingModule } from './dashboard-routing.module';
 import { CalendarModule } from 'primeng/calendar';
 import { AthletesComponent } from './athletes/athletes.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 @NgModule({
     imports: [
@@ -25,6 +26,6 @@ import { AthletesComponent } from './athletes/athletes.component';
         DashboardsRoutingModule,
         CalendarModule,
     ],
-    declarations: [DashboardComponent, AthletesComponent],
+    declarations: [DashboardComponent, AthletesComponent, PaymentsComponent],
 })
 export class DashboardModule {}

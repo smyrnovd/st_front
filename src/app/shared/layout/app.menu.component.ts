@@ -27,6 +27,11 @@ export class AppMenuComponent implements OnInit {
                         icon: 'pi pi-fw pi-user',
                         routerLink: ['/dashboard/athletes'],
                     },
+                    {
+                        label: 'Payments',
+                        icon: 'pi pi-fw pi-money-bill',
+                        routerLink: ['/dashboard/payments'],
+                    },
                 ],
             },
         ];
