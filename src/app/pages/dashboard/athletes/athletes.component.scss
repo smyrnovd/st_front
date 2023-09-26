@@ -1,7 +1,7 @@
 .search-input {
-    padding-left: 30px;
+    padding: 10px 10px 10px 30px;
+    width: 200px;
 }
-
 
 :host ::ng-deep {
     .p-paginator {
@@ -37,6 +37,7 @@
             padding: 1rem;
             text-align: left;
             font-size: 1.5rem;
+
         }
     
         .p-paginator {
