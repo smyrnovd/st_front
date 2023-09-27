@@ -103,14 +103,20 @@
 
   <p-dialog
     [(visible)]="newPaymentDialog"
-    [style]="{ width: '450px' }"
+    [style]="{ width: '400px', height: '550px' }"
     header="New Paymnet"
     [modal]="true"
     class="p-fluid">
     <ng-template pTemplate="content">
-      <p-calendar [(ngModel)]="date" [showIcon]="true" required></p-calendar>
+      <p-calendar
+        [(ngModel)]="newDate"
+        [readonlyInput]="true"
+        [showIcon]="true"
+        required
+        firstDayOfWeek="1"
+        dateFormat="dd.mm.yy" />
 
-      <div class="field">
+      <div class="field mt-6">
         <label for="name">Name</label>
         <p-dropdown
           [options]="nodes"
@@ -125,7 +131,7 @@
           >Name is required.</small
         >
       </div>
-      <div class="field">
+      <div class="field mt-6">
         <label for="description">Description</label>
         <textarea
           id="description"
@@ -138,7 +144,7 @@
 
       <div class="field">
         <p-inputNumber
-          [(ngModel)]="value3"
+          [(ngModel)]="newPrice"
           [showButtons]="true"
           buttonLayout="horizontal"
           inputId="horizontal"

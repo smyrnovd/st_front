@@ -18,6 +18,10 @@ export class PaymentsComponent implements OnInit {
 
   nodes = [
     {
+      id: 0,
+      name: 'Choose',
+    },
+    {
       id: 1,
       name: 'Trifon',
     },
@@ -26,6 +30,10 @@ export class PaymentsComponent implements OnInit {
       name: 'Antonis',
     },
   ];
+
+  newDate = new Date().toLocaleDateString();
+  // newDate = '06.09.2023';
+  newPrice = 0;
 
   constructor(
     private paymentService: PaymentService,
