@@ -13,7 +13,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { AthletesComponent } from './athletes/athletes.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { ToolbarModule } from 'primeng/toolbar';
-
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
     imports: [
@@ -27,7 +27,8 @@ import { ToolbarModule } from 'primeng/toolbar';
         ButtonModule,
         DashboardsRoutingModule,
         CalendarModule,
-        ToolbarModule
+        ToolbarModule,
+        DialogModule,
     ],
     declarations: [DashboardComponent, AthletesComponent, PaymentsComponent],
 })

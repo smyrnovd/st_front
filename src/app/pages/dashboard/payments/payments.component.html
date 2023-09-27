@@ -11,7 +11,7 @@
                     class="p-button-success mr-2"
                     (click)="openNew()"
                 ></button>
-                <button
+                <!-- <button
                     pButton
                     pRipple
                     label="Delete"
@@ -21,7 +21,7 @@
                     [disabled]="
                         !selectedProducts || !selectedProducts.length
                     "
-                ></button>
+                ></button> -->
             </div>
         </ng-template>
 
@@ -62,10 +62,47 @@
                 </td>
                 <td>
 
-                    <p-button icon="pi pi-trash" pTooltip="Edit" styleClass="p-button-rounded p-button-danger p-button-text"></p-button>
+                    <p-button icon="pi pi-trash" (click)="deletePayment(payment)" pTooltip="Edit" styleClass="p-button-rounded p-button-danger "></p-button>
+                     <p-dialog
+                        [(visible)]="deletePaymentDialog"
+                        header="Confirm"
+                        [modal]="true"
+                        [style]="{ width: '450px' }"
+                    >
+                        <div class="flex align-items-center justify-content-center">
+                            <i
+                                class="pi pi-exclamation-triangle mr-3"
+                                style="font-size: 2rem"
+                            ></i>
+                            <span *ngIf="payments"
+                                >Are you sure you want to delete payment <b>{{ payment.name }} {{ payment.price | currency: 'EUR' }}</b
+                                >?</span
+                            >
+                        </div>
+                        <ng-template pTemplate="footer">
+                            <button
+                                pButton
+                                pRipple
+                                icon="pi pi-times"
+                                class="p-button-text"
+                                label="No"
+                                (click)="deleteProductDialog = false"
+                            ></button>
+                            <button
+                                pButton
+                                pRipple
+                                icon="pi pi-check"
+                                class="p-button-text"
+                                label="Yes"
+                                (click)="confirmDelete()"
+                            ></button>
+                        </ng-template>
+                    </p-dialog>
                 </td>
           
             </tr>
         </ng-template>
     </p-table>
+
+   
 </div>
