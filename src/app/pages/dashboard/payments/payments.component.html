@@ -112,6 +112,7 @@
         [(ngModel)]="newPayment.date"
         [readonlyInput]="true"
         [showIcon]="true"
+        [placeholder]="toDate"
         required
         firstDayOfWeek="1"
         dateFormat="dd.mm.yy" />
@@ -124,6 +125,7 @@
           optionLabel="name"
           placeholder="Select an athelets"
           id="name"
+          (onChange)="validateNewPayment(newPayment.name, newPayment.price)"
           [ngClass]="{
             'ng-invalid ng-dirty': submitted && !newPayment.name
           }" />
@@ -147,10 +149,12 @@
         <p-inputNumber
           [(ngModel)]="newPayment.price"
           [showButtons]="true"
+          [min]="0"
           buttonLayout="horizontal"
           inputId="horizontal"
           spinnerMode="horizontal"
           [step]="1"
+          (onInput)="validateNewPayment(newPayment.name, newPayment.price)"
           decrementButtonClass="p-button-danger"
           incrementButtonClass="p-button-success"
           incrementButtonIcon="pi pi-plus"
@@ -174,6 +178,7 @@
         label="Save"
         icon="pi pi-check"
         class="p-button-text"
+        [disabled]="isSaveButtonVisible"
         (click)="savePayment()"></button>
     </ng-template>
   </p-dialog>

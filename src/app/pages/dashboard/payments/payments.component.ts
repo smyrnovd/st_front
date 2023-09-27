@@ -19,18 +19,8 @@ export class PaymentsComponent implements OnInit {
   payment: IPayment;
   newPayment: INewPayment;
   submitted: boolean = false;
-  newDate: Date;
-
-  nameNode = [
-    {
-      id: 1,
-      name: 'Trifon',
-    },
-    {
-      id: 2,
-      name: 'Antonis',
-    },
-  ];
+  toDate: string = new Date().toLocaleDateString();
+  isSaveButtonVisible: boolean = true;
 
   constructor(
     private paymentService: PaymentService,
@@ -55,7 +45,7 @@ export class PaymentsComponent implements OnInit {
   newPaymentDataInit() {
     this.newPayment = {
       id: this.payments.length + 1,
-      date: new Date().toLocaleDateString(),
+      date: undefined,
       name: undefined,
       price: 0,
       description: '',
@@ -100,10 +90,23 @@ export class PaymentsComponent implements OnInit {
         life: 3000,
       });
     }
+    if (this.newPayment.date) {
+      this.newPayment.date = new Date(
+        this.newPayment.date
+      ).toLocaleDateString();
+    } else {
+      this.newPayment.date = new Date().toLocaleDateString();
+    }
 
-    this.newPayment.date = new Date(this.newPayment.date).toLocaleDateString();
     this.payments.unshift(this.newPayment);
     this.newPaymentDialog = false;
-    console.log(this.payments);
+  }
+
+  validateNewPayment(name: string, price: number) {
+    if (name && price > 0) {
+      this.isSaveButtonVisible = false;
+    } else {
+      this.isSaveButtonVisible = true;
+    }
   }
 }
