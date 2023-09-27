@@ -79,7 +79,7 @@
       <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
       <span *ngIf="payment"
         >Are you sure you want to delete payment
-        <b>{{ payment.name }} {{ payment.price | currency: 'EUR' }}</b
+        <b>{{ payment.name.name }} {{ payment.price | currency: 'EUR' }}</b
         >?</span
       >
     </div>

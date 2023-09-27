@@ -76,12 +76,9 @@ export class PaymentsComponent implements OnInit {
       detail: 'Product Deleted',
       life: 3000,
     });
-    console.log('success');
-    this.payment = {};
   }
 
   openNew() {
-    console.log(...this.athletes);
     this.newPaymentDataInit();
     this.submitted = false;
     this.newPaymentDialog = true;
@@ -103,10 +100,8 @@ export class PaymentsComponent implements OnInit {
         life: 3000,
       });
     }
-    console.log(this.newPayment.date);
-    // this.newPayment.date = this.newPayment.date;
 
-    console.log(this.newPayment);
+    this.newPayment.date = new Date(this.newPayment.date).toLocaleDateString();
     this.payments.unshift(this.newPayment);
     this.newPaymentDialog = false;
     console.log(this.payments);
