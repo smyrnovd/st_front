@@ -11,9 +11,10 @@ import { MessageService } from 'primeng/api';
 })
 export class PaymentsComponent implements OnInit {
     payments: IPayment[] = [];
+    newPaymentDialog: boolean = false;
     deletePaymentDialog: boolean = false;
     payment: IPayment;
-
+    submitted: boolean = false;
     constructor(
         private paymentService: PaymentService,
         private messageService: MessageService
@@ -41,5 +42,15 @@ export class PaymentsComponent implements OnInit {
         });
         console.log('success');
         this.payment = {};
+    }
+
+    openNew() {
+        this.payment = {};
+        this.submitted = false;
+        this.newPaymentDialog = true;
+    }
+    hideDialog() {
+        this.newPaymentDialog = false;
+        this.submitted = false;
     }
 }

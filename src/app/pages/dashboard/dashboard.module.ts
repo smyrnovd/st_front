@@ -15,6 +15,9 @@ import { PaymentsComponent } from './payments/payments.component';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DialogModule } from 'primeng/dialog';
 import { ToastModule } from 'primeng/toast';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
     imports: [
@@ -31,6 +34,9 @@ import { ToastModule } from 'primeng/toast';
         ToolbarModule,
         DialogModule,
         ToastModule,
+        InputTextModule,
+        InputTextareaModule,
+        InputNumberModule,
     ],
     declarations: [DashboardComponent, AthletesComponent, PaymentsComponent],
 })
