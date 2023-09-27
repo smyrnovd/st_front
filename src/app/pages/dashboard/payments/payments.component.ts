@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PaymentService } from 'src/app/shared/service/payment.service';
-import { IPayment } from 'src/app/shared/api/payment';
+import { INewPayment, IPayment } from 'src/app/shared/api/payment';
 import { MessageService } from 'primeng/api';
+import { AthleteService } from '../../../shared/service/athlete.service';
 
 @Component({
   selector: 'app-payments',
@@ -14,9 +15,11 @@ export class PaymentsComponent implements OnInit {
   newPaymentDialog: boolean = false;
   deletePaymentDialog: boolean = false;
   payment: IPayment;
+  newPayment: INewPayment;
   submitted: boolean = false;
+  newDate: Date;
 
-  nodes = [
+  nameNode = [
     {
       id: 1,
       name: 'Trifon',
@@ -27,9 +30,6 @@ export class PaymentsComponent implements OnInit {
     },
   ];
 
-  newDate = new Date().toLocaleDateString();
-  newPrice = 0;
-
   constructor(
     private paymentService: PaymentService,
     private messageService: MessageService
@@ -38,7 +38,20 @@ export class PaymentsComponent implements OnInit {
     this.paymentService.getPaymentsMini().then(data => {
       this.payments = data;
     });
+
+    console.log(this.nameNode);
   }
+
+  newPaymentDataInit() {
+    this.newPayment = {
+      id: this.payments.length + 1,
+      date: new Date().toLocaleDateString(),
+      name: undefined,
+      price: 0,
+      description: '',
+    };
+  }
+
   deletePayment(payment: IPayment) {
     this.deletePaymentDialog = true;
     this.payment = { ...payment };
@@ -58,12 +71,33 @@ export class PaymentsComponent implements OnInit {
   }
 
   openNew() {
-    this.payment = {};
+    this.newPaymentDataInit();
     this.submitted = false;
     this.newPaymentDialog = true;
   }
+
   hideDialog() {
     this.newPaymentDialog = false;
     this.submitted = false;
+  }
+
+  savePayment() {
+    this.submitted = true;
+
+    if (this.newPayment.name) {
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Successful',
+        detail: 'Product Updated',
+        life: 3000,
+      });
+    }
+    console.log(this.newPayment.date);
+    // this.newPayment.date = this.newPayment.date;
+
+    console.log(this.newPayment);
+    this.payments.unshift(this.newPayment);
+    this.newPaymentDialog = false;
+    console.log(this.payments);
   }
 }

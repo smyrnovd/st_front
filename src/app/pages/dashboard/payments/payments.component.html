@@ -109,7 +109,7 @@
     class="p-fluid">
     <ng-template pTemplate="content">
       <p-calendar
-        [(ngModel)]="newDate"
+        [(ngModel)]="newPayment.date"
         [readonlyInput]="true"
         [showIcon]="true"
         required
@@ -119,16 +119,16 @@
       <div class="field mt-6">
         <label for="name">Name</label>
         <p-dropdown
-          [options]="nodes"
-          [(ngModel)]="payment.name"
+          [options]="nameNode"
+          [(ngModel)]="newPayment.name"
           optionLabel="name"
           placeholder="Select an athelets"
           id="name"
           [ngClass]="{
-            'ng-invalid ng-dirty': submitted && !payment.name
+            'ng-invalid ng-dirty': submitted && !newPayment.name
           }" />
 
-        <small class="ng-dirty ng-invalid" *ngIf="submitted && !payment.name"
+        <small class="ng-dirty ng-invalid" *ngIf="submitted && !newPayment.name"
           >Name is required.</small
         >
       </div>
@@ -137,7 +137,7 @@
         <textarea
           id="description"
           pInputTextarea
-          [(ngModel)]="payment.description"
+          [(ngModel)]="newPayment.description"
           required
           rows="3"
           cols="20"></textarea>
@@ -145,7 +145,7 @@
 
       <div class="field">
         <p-inputNumber
-          [(ngModel)]="newPrice"
+          [(ngModel)]="newPayment.price"
           [showButtons]="true"
           buttonLayout="horizontal"
           inputId="horizontal"
@@ -157,24 +157,6 @@
           decrementButtonIcon="pi pi-minus"
           mode="currency"
           currency="EUR"></p-inputNumber>
-
-        <!-- <div class="p-inputgroup">
-                            <span class="p-inputgroup-addon">
-                                <i class="pi pi-euro"></i>
-                            </span>
-                      
-                        <p-inputNumber inputId="price" [(ngModel)]="payment.price" required
-                            autofocus
-                            [ngClass]="{
-                                'ng-invalid ng-dirty': submitted && !payment.price
-                            }" /> 
-                      
-                        <small
-                            class="ng-dirty ng-invalid"
-                            *ngIf="submitted && !payment.price"
-                            >Summary is required.</small
-                        >
-                    </div> -->
       </div>
     </ng-template>
 
@@ -192,7 +174,7 @@
         label="Save"
         icon="pi pi-check"
         class="p-button-text"
-        (click)="saveProduct()"></button>
+        (click)="savePayment()"></button>
     </ng-template>
   </p-dialog>
 </div>

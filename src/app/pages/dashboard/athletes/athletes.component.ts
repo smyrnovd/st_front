@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer, Representative } from '../../../shared/api/customer';
-import { CustomerService } from '../../../shared/service/customer.service';
+import { AthleteService } from '../../../shared/service/athlete.service';
 
 @Component({
   selector: 'app-athletes',
@@ -8,9 +8,9 @@ import { CustomerService } from '../../../shared/service/customer.service';
   styleUrls: ['./athletes.component.scss'],
 })
 export class AthletesComponent implements OnInit {
-  customers!: Customer[];
+  athletes!: Customer[];
 
-  selectedCustomers!: Customer[];
+  selectedAthletes!: Customer[];
 
   representatives!: Representative[];
 
@@ -20,39 +20,17 @@ export class AthletesComponent implements OnInit {
 
   activityValues: number[] = [0, 100];
 
-  constructor(private customerService: CustomerService) {}
+  constructor(private athleteService: AthleteService) {}
 
   ngOnInit() {
-    this.customerService.getCustomersLarge().then(customers => {
-      this.customers = customers;
+    this.athleteService.getCustomersLarge().then(athletes => {
+      this.athletes = athletes;
       this.loading = false;
 
-      this.customers.forEach(
-        customer => (customer.date = new Date(<Date>customer.date))
+      this.athletes.forEach(
+        athlete => (athlete.date = new Date(<Date>athlete.date))
       );
     });
-
-    this.representatives = [
-      { name: 'Amy Elsner', image: 'amyelsner.png' },
-      { name: 'Anna Fali', image: 'annafali.png' },
-      { name: 'Asiya Javayant', image: 'asiyajavayant.png' },
-      { name: 'Bernardo Dominic', image: 'bernardodominic.png' },
-      { name: 'Elwin Sharvill', image: 'elwinsharvill.png' },
-      { name: 'Ioni Bowcher', image: 'ionibowcher.png' },
-      { name: 'Ivan Magalhaes', image: 'ivanmagalhaes.png' },
-      { name: 'Onyama Limba', image: 'onyamalimba.png' },
-      { name: 'Stephen Shaw', image: 'stephenshaw.png' },
-      { name: 'Xuxue Feng', image: 'xuxuefeng.png' },
-    ];
-
-    this.statuses = [
-      { label: 'Unqualified', value: 'unqualified' },
-      { label: 'Qualified', value: 'qualified' },
-      { label: 'New', value: 'new' },
-      { label: 'Negotiation', value: 'negotiation' },
-      { label: 'Renewal', value: 'renewal' },
-      { label: 'Proposal', value: 'proposal' },
-    ];
   }
 
   getSeverity(status: string) {
