@@ -14,6 +14,7 @@ import { AthletesComponent } from './athletes/athletes.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DialogModule } from 'primeng/dialog';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
     imports: [
@@ -29,6 +30,7 @@ import { DialogModule } from 'primeng/dialog';
         CalendarModule,
         ToolbarModule,
         DialogModule,
+        ToastModule,
     ],
     declarations: [DashboardComponent, AthletesComponent, PaymentsComponent],
 })

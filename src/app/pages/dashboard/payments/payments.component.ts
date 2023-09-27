@@ -39,6 +39,7 @@ export class PaymentsComponent implements OnInit {
             detail: 'Product Deleted',
             life: 3000,
         });
+        console.log('success');
         this.payment = {};
     }
 }
