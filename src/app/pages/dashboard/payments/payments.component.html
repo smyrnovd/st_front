@@ -1,12 +1,38 @@
 <div class="card">
-    <p-table [value]="payments" dataKey="id" [tableStyle]="{ 'min-width': '50rem' }">
-        <ng-template pTemplate="caption">
-            <div class="flex">
-                <button type="button" pButton pRipple icon="pi pi-plus"  pTooltip="New" tooltipPosition="bottom"></button>
-                <button type="button" pButton pRipple icon="pi pi-file-excel"  class="p-button-success ml-auto" pTooltip="XLS" tooltipPosition="bottom"></button>
-                <button type="button" pButton pRipple icon="pi pi-file-pdf"  class="p-button-warning ml-2 mr-3" pTooltip="PDF" tooltipPosition="bottom"></button>
+
+    <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+            <div class="my-2">
+                <button
+                    pButton
+                    pRipple
+                    label="New"
+                    icon="pi pi-plus"
+                    class="p-button-success mr-2"
+                    (click)="openNew()"
+                ></button>
+                <button
+                    pButton
+                    pRipple
+                    label="Delete"
+                    icon="pi pi-trash"
+                    class="p-button-danger"
+                    (click)="deleteSelectedProducts()"
+                    [disabled]="
+                        !selectedProducts || !selectedProducts.length
+                    "
+                ></button>
             </div>
-            </ng-template>
+        </ng-template>
+
+        <ng-template pTemplate="right">
+       
+            <!-- <button type="button" pButton pRipple icon="pi pi-file-excel"  class="p-button-success ml-auto" pTooltip="XLS" tooltipPosition="bottom"></button>
+            <button type="button" pButton pRipple icon="pi pi-file-pdf"  class="p-button-warning ml-2 mr-3" pTooltip="PDF" tooltipPosition="bottom"></button> -->
+        </ng-template>
+    </p-toolbar>
+    <p-table [value]="payments" dataKey="id" [tableStyle]="{ 'min-width': '50rem' }">
+    
         <ng-template pTemplate="header">
             <tr>
                 <th style="width:30%">Date</th>
@@ -16,8 +42,8 @@
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-payment let-editing="editing">
-            <tr>
-                <td [pEditableColumn]="payment.date" pEditableColumnField="code">
+            <tr class="hover:bg-gray-100">
+                <td [pEditableColumn]="payment.date" pEditableColumnField="code" >
                    
                             {{ payment.date }}
 

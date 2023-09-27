@@ -12,6 +12,8 @@ import { DashboardsRoutingModule } from './dashboard-routing.module';
 import { CalendarModule } from 'primeng/calendar';
 import { AthletesComponent } from './athletes/athletes.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { ToolbarModule } from 'primeng/toolbar';
+
 
 @NgModule({
     imports: [
@@ -25,6 +27,7 @@ import { PaymentsComponent } from './payments/payments.component';
         ButtonModule,
         DashboardsRoutingModule,
         CalendarModule,
+        ToolbarModule
     ],
     declarations: [DashboardComponent, AthletesComponent, PaymentsComponent],
 })
