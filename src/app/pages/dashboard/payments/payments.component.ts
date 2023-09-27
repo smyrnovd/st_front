@@ -1,24 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { PaymentService } from 'src/app/shared/service/payment.service';
-import { payment } from 'src/app/shared/api/payment';
+import { IPayment } from 'src/app/shared/api/payment';
+import { MessageService } from 'primeng/api';
 
 @Component({
     selector: 'app-payments',
     templateUrl: './payments.component.html',
     styleUrls: ['./payments.component.scss'],
+    providers: [MessageService],
 })
 export class PaymentsComponent implements OnInit {
-    payments!: payment[];
+    payments: IPayment[] = [];
     deletePaymentDialog: boolean = false;
+    payment: IPayment;
 
-    constructor(private paymentService: PaymentService) {}
+    constructor(
+        private paymentService: PaymentService,
+        private messageService: MessageService
+    ) {}
     ngOnInit() {
         this.paymentService.getPaymentsMini().then((data) => {
             this.payments = data;
         });
     }
-    deletePayment(payment: payment) {
+    deletePayment(payment: IPayment) {
         this.deletePaymentDialog = true;
-        // this.payments = { ...payment };
+        this.payment = { ...payment };
+    }
+
+    confirmDelete() {
+        this.deletePaymentDialog = false;
+        this.payments = this.payments.filter(
+            (val) => val.id !== this.payment.id
+        );
+        this.messageService.add({
+            severity: 'success',
+            summary: 'Successful',
+            detail: 'Product Deleted',
+            life: 3000,
+        });
+        this.payment = {};
     }
 }
