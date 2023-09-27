@@ -3,6 +3,7 @@ import { PaymentService } from 'src/app/shared/service/payment.service';
 import { INewPayment, IPayment } from 'src/app/shared/api/payment';
 import { MessageService } from 'primeng/api';
 import { AthleteService } from '../../../shared/service/athlete.service';
+import { Customer } from 'src/app/shared/api/customer';
 
 @Component({
   selector: 'app-payments',
@@ -11,7 +12,8 @@ import { AthleteService } from '../../../shared/service/athlete.service';
   providers: [MessageService],
 })
 export class PaymentsComponent implements OnInit {
-  payments: IPayment[] = [];
+  payments: IPayment[];
+  athletes: Customer[];
   newPaymentDialog: boolean = false;
   deletePaymentDialog: boolean = false;
   payment: IPayment;
@@ -32,14 +34,22 @@ export class PaymentsComponent implements OnInit {
 
   constructor(
     private paymentService: PaymentService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private athleteService: AthleteService
   ) {}
+
   ngOnInit() {
     this.paymentService.getPaymentsMini().then(data => {
       this.payments = data;
     });
 
-    console.log(this.nameNode);
+    this.athleteService.getCustomersLarge().then(athletes => {
+      this.athletes = athletes;
+
+      this.athletes.forEach(
+        athlete => (athlete.date = new Date(<Date>athlete.date))
+      );
+    });
   }
 
   newPaymentDataInit() {
@@ -71,6 +81,7 @@ export class PaymentsComponent implements OnInit {
   }
 
   openNew() {
+    console.log(...this.athletes);
     this.newPaymentDataInit();
     this.submitted = false;
     this.newPaymentDialog = true;

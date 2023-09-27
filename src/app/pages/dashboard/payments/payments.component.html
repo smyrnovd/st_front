@@ -48,7 +48,7 @@
           {{ payment.date }}
         </td>
         <td [pEditableColumn]="payment.name" pEditableColumnField="name">
-          {{ payment.name }}
+          {{ payment.name.name }}
         </td>
 
         <td [pEditableColumn]="payment.price" pEditableColumnField="price">
@@ -119,7 +119,7 @@
       <div class="field mt-6">
         <label for="name">Name</label>
         <p-dropdown
-          [options]="nameNode"
+          [options]="athletes"
           [(ngModel)]="newPayment.name"
           optionLabel="name"
           placeholder="Select an athelets"
