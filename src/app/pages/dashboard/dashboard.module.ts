@@ -18,26 +18,28 @@ import { ToastModule } from 'primeng/toast';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        ChartModule,
-        MenuModule,
-        TableModule,
-        StyleClassModule,
-        PanelMenuModule,
-        ButtonModule,
-        DashboardsRoutingModule,
-        CalendarModule,
-        ToolbarModule,
-        DialogModule,
-        ToastModule,
-        InputTextModule,
-        InputTextareaModule,
-        InputNumberModule,
-    ],
-    declarations: [DashboardComponent, AthletesComponent, PaymentsComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ChartModule,
+    MenuModule,
+    TableModule,
+    StyleClassModule,
+    PanelMenuModule,
+    ButtonModule,
+    DashboardsRoutingModule,
+    CalendarModule,
+    ToolbarModule,
+    DialogModule,
+    ToastModule,
+    InputTextModule,
+    InputTextareaModule,
+    InputNumberModule,
+    DropdownModule,
+  ],
+  declarations: [DashboardComponent, AthletesComponent, PaymentsComponent],
 })
 export class DashboardModule {}

@@ -1,42 +1,38 @@
 <div>
-    <div class="main-grid-block">
-        <div class="calendar-block">
-            <p-calendar
-                class="max-w-full"
-                [(ngModel)]="date"
-                [inline]="true"
-                [showWeek]="false"
-                [firstDayOfWeek]="1"
-            ></p-calendar>
-        </div>
-        <div class="tab-block" *ngFor="let info of infoBlocks">
-            <div class="card mb-0">
-                <div class="flex justify-content-between mb-3">
-                    <div>
-                        <span class="block text-500 font-medium mb-3">{{
-                            info.title
-                        }}</span>
-                        <div class="text-900 font-medium text-xl">
-                            {{ info.value }}
-                        </div>
-                    </div>
-                    <div
-                        class="flex align-items-center justify-content-center {{
-                            info.color_bg
-                        }} border-round"
-                        [ngStyle]="{ width: '2.5rem', height: '2.5rem' }"
-                    >
-                        <i class="text-xl {{ info.color }} {{ info.icon }}"></i>
-                    </div>
-                </div>
-                <span class="text-green-500 font-medium">{{
-                    info.small_num
-                }}</span>
-                <span class="text-500"> {{ info.small_text }}</span>
+  <div class="main-grid-block">
+    <div class="calendar-block">
+      <p-calendar
+        class="max-w-full"
+        [(ngModel)]="date"
+        [inline]="true"
+        [showWeek]="false"
+        [firstDayOfWeek]="1"></p-calendar>
+    </div>
+    <div class="tab-block" *ngFor="let info of infoBlocks">
+      <div class="card mb-0">
+        <div class="flex justify-content-between mb-3">
+          <div>
+            <span class="block text-500 font-medium mb-3">{{
+              info.title
+            }}</span>
+            <div class="text-900 font-medium text-xl">
+              {{ info.value }}
             </div>
+          </div>
+          <div
+            class="flex align-items-center justify-content-center {{
+              info.color_bg
+            }} border-round"
+            [ngStyle]="{ width: '2.5rem', height: '2.5rem' }">
+            <i class="text-xl {{ info.color }} {{ info.icon }}"></i>
+          </div>
         </div>
+        <span class="text-green-500 font-medium">{{ info.small_num }}</span>
+        <span class="text-500"> {{ info.small_text }}</span>
+      </div>
+    </div>
 
-        <!-- Notifications
+    <!-- Notifications
     <div class="col-12 xl:col-6">
         
             <div class="card">
@@ -121,5 +117,5 @@
             </ul>
         </div> 
     </div>-->
-    </div>
+  </div>
 </div>

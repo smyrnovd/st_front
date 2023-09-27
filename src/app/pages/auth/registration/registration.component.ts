@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { LayoutService } from 'src/app/shared/layout/service/app.layout.service';
 
 @Component({
-    selector: 'app-registration',
-    templateUrl: './registration.component.html',
-    styleUrls: ['./registration.component.scss'],
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent {
-    valCheck: string[] = ['remember'];
+  valCheck: string[] = ['remember'];
 
-    password!: string;
+  password!: string;
 
-    constructor(public layoutService: LayoutService) {}
+  constructor(public layoutService: LayoutService) {}
 }

@@ -15,19 +15,19 @@ import { ButtonModule } from 'primeng/button';
 import { PaymentService } from './shared/service/payment.service';
 
 @NgModule({
-    declarations: [AppComponent, NotfoundComponent],
-    imports: [AppRoutingModule, AppLayoutModule, ButtonModule],
-    providers: [
-        { provide: LocationStrategy, useClass: PathLocationStrategy },
-        CountryService,
-        CustomerService,
-        EventService,
-        IconService,
-        NodeService,
-        PhotoService,
-        ProductService,
-        PaymentService
-    ],
-    bootstrap: [AppComponent],
+  declarations: [AppComponent, NotfoundComponent],
+  imports: [AppRoutingModule, AppLayoutModule, ButtonModule],
+  providers: [
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
+    CountryService,
+    CustomerService,
+    EventService,
+    IconService,
+    NodeService,
+    PhotoService,
+    ProductService,
+    PaymentService,
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -9,15 +9,15 @@ import { PasswordModule } from 'primeng/password';
 import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        RegistrationRoutingModule,
-        ButtonModule,
-        CheckboxModule,
-        InputTextModule,
-        FormsModule,
-        PasswordModule,
-    ],
-    declarations: [RegistrationComponent],
+  imports: [
+    CommonModule,
+    RegistrationRoutingModule,
+    ButtonModule,
+    CheckboxModule,
+    InputTextModule,
+    FormsModule,
+    PasswordModule,
+  ],
+  declarations: [RegistrationComponent],
 })
 export class RegistrationModule {}
