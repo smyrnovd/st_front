@@ -5,14 +5,13 @@
                 <button type="button" pButton pRipple icon="pi pi-plus"  pTooltip="New" tooltipPosition="bottom"></button>
                 <button type="button" pButton pRipple icon="pi pi-file-excel"  class="p-button-success ml-auto" pTooltip="XLS" tooltipPosition="bottom"></button>
                 <button type="button" pButton pRipple icon="pi pi-file-pdf"  class="p-button-warning ml-2 mr-3" pTooltip="PDF" tooltipPosition="bottom"></button>
-                <!-- <button type="button" pButton pRipple icon="pi pi-filter" class="p-button-info ml-auto" pTooltip="Selection Only" tooltipPosition="bottom"></button> -->
             </div>
             </ng-template>
         <ng-template pTemplate="header">
             <tr>
                 <th style="width:30%">Date</th>
                 <th style="width:30%">Name</th>
-                <th style="width:30%">Price</th>
+                <th style="width:30%">Summary</th>
                 <th style="width:10%">Edit</th>
             </tr>
         </ng-template>
@@ -37,7 +36,7 @@
                 </td>
                 <td>
 
-                    <p-button icon="pi pi-pencil" pTooltip="Edit" styleClass="p-button-rounded p-button-danger p-button-text"></p-button>
+                    <p-button icon="pi pi-trash" pTooltip="Edit" styleClass="p-button-rounded p-button-danger p-button-text"></p-button>
                 </td>
           
             </tr>
