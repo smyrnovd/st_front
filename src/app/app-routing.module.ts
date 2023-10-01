@@ -41,11 +41,6 @@ import { AppLayoutComponent } from './shared/layout/app.layout.component';
                   m => m.DocumentationModule
                 ),
             },
-            {
-              path: 'pages',
-              loadChildren: () =>
-                import('./pages/pages/pages.module').then(m => m.PagesModule),
-            },
           ],
         },
 
