@@ -22,14 +22,6 @@
         class="p-button-success ml-auto"
         pTooltip="XLS"
         tooltipPosition="bottom"></button>
-      <button
-        type="button"
-        pButton
-        pRipple
-        icon="pi pi-file-pdf"
-        class="p-button-warning ml-2 mr-3"
-        pTooltip="PDF"
-        tooltipPosition="bottom"></button>
     </ng-template>
   </p-toolbar>
 
@@ -40,10 +32,10 @@
     <ng-template pTemplate="header">
       <tr>
         <th style="width: 15%">Date</th>
-        <th style="width: 15%">Name</th>
-        <th style="width: 15%">Summary</th>
-        <th style="width: 40%">Description</th>
-        <th style="width: 10%"></th>
+        <th style="width: 20%" class="text-center">Name</th>
+        <th style="width: 15%" class="text-center">Summary</th>
+        <th style="width: 35%" class="text-center">Description</th>
+        <th style="width: 10%" class="text-right"></th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-payment>
@@ -51,19 +43,26 @@
         <td [pEditableColumn]="payment.date" pEditableColumnField="code">
           {{ payment.date }}
         </td>
-        <td [pEditableColumn]="payment.name" pEditableColumnField="name">
+        <td
+          class="text-center"
+          [pEditableColumn]="payment.name"
+          pEditableColumnField="name">
           {{ payment.name.name }}
         </td>
 
-        <td [pEditableColumn]="payment.price" pEditableColumnField="price">
+        <td
+          class="text-center"
+          [pEditableColumn]="payment.price"
+          pEditableColumnField="price">
           {{ payment.price | currency: 'EUR' }}
         </td>
         <td
+          class="text-center"
           [pEditableColumn]="payment.description"
           pEditableColumnField="description">
           {{ payment.description }}
         </td>
-        <td style="text-align: center">
+        <td class="text-right">
           <p-button
             icon="pi pi-times"
             (click)="deletePayment(payment)"
