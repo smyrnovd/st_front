@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer, Representative } from '../../../shared/api/customer';
+import { Athlete, Representative } from '../../../shared/api/athlete';
 import { AthleteService } from '../../../shared/service/athlete.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-athletes',
   templateUrl: './athletes.component.html',
   styleUrls: ['./athletes.component.scss'],
+  providers: [MessageService],
 })
 export class AthletesComponent implements OnInit {
-  athletes!: Customer[];
-
-  selectedAthletes!: Customer[];
+  athletes: Athlete[];
+  newAthlete: Athlete;
+  selectedAthletes!: Athlete[];
 
   representatives!: Representative[];
 
@@ -20,7 +22,25 @@ export class AthletesComponent implements OnInit {
 
   activityValues: number[] = [0, 100];
 
-  constructor(private athleteService: AthleteService) {}
+  newAthleteDialog: boolean = false;
+
+  deleteAthleteDialog: boolean = false;
+
+  submitted: boolean = false;
+  toDate: string = new Date().toLocaleDateString();
+  isSaveButtonDisabled: boolean = true;
+
+  status = [
+    { name: 'unqualified' },
+    { name: 'proposal' },
+    { name: 'qualified' },
+    { name: 'new' },
+    { name: 'renewal' },
+  ];
+  constructor(
+    private athleteService: AthleteService,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit() {
     this.athleteService.getCustomersLarge().then(athletes => {
@@ -50,6 +70,57 @@ export class AthletesComponent implements OnInit {
       case 'renewal':
       default:
         return null;
+    }
+  }
+  newAthleteDataInit() {
+    this.newAthlete = {
+      id: this.athletes.length + 1,
+      date: undefined,
+      name: undefined,
+      balance: undefined,
+      status: '',
+    };
+  }
+
+  openNew() {
+    this.newAthleteDataInit();
+    this.submitted = false;
+    this.newAthleteDialog = true;
+  }
+
+  hideDialog() {
+    this.newAthleteDialog = false;
+    this.submitted = false;
+  }
+
+  savePayment() {
+    this.submitted = true;
+
+    if (this.newAthlete.name) {
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Successful',
+        detail: 'Product Updated',
+        life: 3000,
+      });
+    }
+    if (this.newAthlete.date instanceof Date) {
+      this.newAthlete.date = this.newAthlete.date.toLocaleDateString();
+    }
+
+    console.log(this.newAthlete.status);
+
+    this.athletes.unshift(this.newAthlete);
+    this.isSaveButtonDisabled = true;
+    this.newAthleteDialog = false;
+  }
+
+  validateNewAthlete() {
+    console.log(this.newAthlete.name, this.newAthlete.date);
+    if (this.newAthlete.name && this.newAthlete.date) {
+      this.isSaveButtonDisabled = false;
+    } else {
+      this.isSaveButtonDisabled = true;
     }
   }
 }

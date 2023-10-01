@@ -3,7 +3,7 @@ import { PaymentService } from 'src/app/shared/service/payment.service';
 import { INewPayment, IPayment } from 'src/app/shared/api/payment';
 import { MessageService } from 'primeng/api';
 import { AthleteService } from '../../../shared/service/athlete.service';
-import { Customer } from 'src/app/shared/api/customer';
+import { Athlete } from 'src/app/shared/api/athlete';
 
 @Component({
   selector: 'app-payments',
@@ -13,14 +13,14 @@ import { Customer } from 'src/app/shared/api/customer';
 })
 export class PaymentsComponent implements OnInit {
   payments: IPayment[];
-  athletes: Customer[];
+  athletes: Athlete[];
   newPaymentDialog: boolean = false;
   deletePaymentDialog: boolean = false;
   payment: IPayment;
   newPayment: INewPayment;
   submitted: boolean = false;
   toDate: string = new Date().toLocaleDateString();
-  isSaveButtonVisible: boolean = true;
+  isSaveButtonDisabled: boolean = true;
 
   constructor(
     private paymentService: PaymentService,
@@ -99,14 +99,15 @@ export class PaymentsComponent implements OnInit {
     }
 
     this.payments.unshift(this.newPayment);
+    this.isSaveButtonDisabled = true;
     this.newPaymentDialog = false;
   }
 
   validateNewPayment(name: string, price: number) {
     if (name && price > 0) {
-      this.isSaveButtonVisible = false;
+      this.isSaveButtonDisabled = false;
     } else {
-      this.isSaveButtonVisible = true;
+      this.isSaveButtonDisabled = true;
     }
   }
 }

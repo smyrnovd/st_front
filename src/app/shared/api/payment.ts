@@ -1,16 +1,16 @@
-import { Customer } from './customer';
+import { Athlete } from './athlete';
 
 export interface IPayment {
   id?: number;
   date?: string;
-  name?: Customer;
+  name?: Athlete;
   description?: string;
   price?: number;
 }
 export interface INewPayment {
   id: number;
   date: string;
-  name: Customer;
+  name: Athlete;
   price: number;
   description: string;
 }

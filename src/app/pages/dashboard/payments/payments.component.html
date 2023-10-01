@@ -8,27 +8,31 @@
           pRipple
           label="New"
           icon="pi pi-plus"
-          class="p-button-success mr-2"
+          class="p-button-primary mr-2"
           (click)="openNew()"></button>
-        <!-- <button
-                    pButton
-                    pRipple
-                    label="Delete"
-                    icon="pi pi-trash"
-                    class="p-button-danger"
-                    (click)="deleteSelectedProducts()"
-                    [disabled]="
-                        !selectedProducts || !selectedProducts.length
-                    "
-                ></button> -->
       </div>
     </ng-template>
-
+    <!-- Download CSV and PDF Buttons -->
     <ng-template pTemplate="right">
-      <!-- <button type="button" pButton pRipple icon="pi pi-file-excel"  class="p-button-success ml-auto" pTooltip="XLS" tooltipPosition="bottom"></button>
-            <button type="button" pButton pRipple icon="pi pi-file-pdf"  class="p-button-warning ml-2 mr-3" pTooltip="PDF" tooltipPosition="bottom"></button> -->
+      <button
+        type="button"
+        pButton
+        pRipple
+        icon="pi pi-file-excel"
+        class="p-button-success ml-auto"
+        pTooltip="XLS"
+        tooltipPosition="bottom"></button>
+      <button
+        type="button"
+        pButton
+        pRipple
+        icon="pi pi-file-pdf"
+        class="p-button-warning ml-2 mr-3"
+        pTooltip="PDF"
+        tooltipPosition="bottom"></button>
     </ng-template>
   </p-toolbar>
+
   <p-table
     [value]="payments"
     dataKey="id"
@@ -178,7 +182,7 @@
         label="Save"
         icon="pi pi-check"
         class="p-button-text"
-        [disabled]="isSaveButtonVisible"
+        [disabled]="isSaveButtonDisabled"
         (click)="savePayment()"></button>
     </ng-template>
   </p-dialog>

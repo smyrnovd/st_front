@@ -8,7 +8,7 @@ export interface Representative {
   image?: string;
 }
 
-export interface Customer {
+export interface Athlete {
   id?: number;
   name?: string;
   country?: Country;
