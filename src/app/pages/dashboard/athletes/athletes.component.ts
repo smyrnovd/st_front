@@ -29,18 +29,14 @@ export class AthletesComponent implements OnInit {
   submitted: boolean = false;
   toDate: string = new Date().toLocaleDateString();
   isSaveButtonDisabled: boolean = true;
+  status: string[];
 
-  status = [
-    { name: 'unqualified' },
-    { name: 'proposal' },
-    { name: 'qualified' },
-    { name: 'new' },
-    { name: 'renewal' },
-  ];
   constructor(
     private athleteService: AthleteService,
     private messageService: MessageService
-  ) {}
+  ) {
+    this.status = ['unqualified', 'proposal', 'qualified', 'new', 'renewal'];
+  }
 
   ngOnInit() {
     this.athleteService.getCustomersLarge().then(athletes => {
@@ -72,12 +68,13 @@ export class AthletesComponent implements OnInit {
         return null;
     }
   }
+
   newAthleteDataInit() {
     this.newAthlete = {
       id: this.athletes.length + 1,
       date: undefined,
       name: undefined,
-      balance: undefined,
+      balance: 0,
       status: '',
     };
   }
@@ -108,15 +105,12 @@ export class AthletesComponent implements OnInit {
       this.newAthlete.date = this.newAthlete.date.toLocaleDateString();
     }
 
-    console.log(this.newAthlete.status);
-
     this.athletes.unshift(this.newAthlete);
     this.isSaveButtonDisabled = true;
     this.newAthleteDialog = false;
   }
 
   validateNewAthlete() {
-    console.log(this.newAthlete.name, this.newAthlete.date);
     if (this.newAthlete.name && this.newAthlete.date) {
       this.isSaveButtonDisabled = false;
     } else {

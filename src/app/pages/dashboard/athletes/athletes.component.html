@@ -190,7 +190,13 @@
 
       <div class="mt-4">
         <span class="p-float-label p-input-icon-right">
-          <input pInputText id="name" [(ngModel)]="newAthlete.name" />
+          <input
+            pInputText
+            id="name"
+            [(ngModel)]="newAthlete.name"
+            (ngModelChange)="
+              validateNewAthlete(newAthlete.name, newAthlete.data)
+            " />
           <label htmlFor="name">Athlete name</label>
           <i class="pi pi-user text-lg"></i>
         </span>
@@ -210,10 +216,9 @@
         <!-- <label for="name">Name</label> -->
         <p-dropdown
           [options]="status"
-          [(ngModel)]="newAthlete.status"
-          optionLabel="name"
+          [(ngModel)]="this.newAthlete.status"
           placeholder="Select an athelets"
-          id="name"
+          id="status"
           [ngClass]="{
             'ng-invalid ng-dirty': submitted && !newAthlete.name
           }" />
