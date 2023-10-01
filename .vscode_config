@@ -18,6 +18,6 @@
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "html.format.contentUnformatted": "",
-  "git.confirmSync": false
-
+  "git.confirmSync": false,
+  "window.zoomLevel": 1
 }
