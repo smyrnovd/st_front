@@ -3,11 +3,13 @@ import { RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { AthletesComponent } from './athletes/athletes.component';
 import { PaymentsComponent } from './payments/payments.component';
+import { DocumentationComponent } from './documentation/documentation.component';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
       { path: '', component: DashboardComponent },
+      { path: 'documentation', component: DocumentationComponent },
       { path: 'athletes', component: AthletesComponent },
       { path: 'payments', component: PaymentsComponent },
     ]),

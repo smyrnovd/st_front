@@ -7,11 +7,6 @@ import { AppLayoutComponent } from './shared/layout/app.layout.component';
   imports: [
     RouterModule.forRoot(
       [
-        // {
-        //     path: '',
-        //     redirectTo: 'landing',
-        //     pathMatch: 'full',
-        // },
         {
           path: '',
           loadChildren: () =>
@@ -32,13 +27,6 @@ import { AppLayoutComponent } from './shared/layout/app.layout.component';
               loadChildren: () =>
                 import('./pages/dashboard/dashboard.module').then(
                   m => m.DashboardModule
-                ),
-            },
-            {
-              path: 'documentation',
-              loadChildren: () =>
-                import('./pages/documentation/documentation.module').then(
-                  m => m.DocumentationModule
                 ),
             },
           ],

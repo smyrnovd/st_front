@@ -19,6 +19,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { DropdownModule } from 'primeng/dropdown';
+import { ProductService } from 'src/app/shared/service/product.service';
+import { AthleteService } from 'src/app/shared/service/athlete.service';
+import { PaymentService } from 'src/app/shared/service/payment.service';
 
 @NgModule({
   imports: [
@@ -41,5 +44,6 @@ import { DropdownModule } from 'primeng/dropdown';
     DropdownModule,
   ],
   declarations: [DashboardComponent, AthletesComponent, PaymentsComponent],
+  providers: [AthleteService, ProductService, PaymentService],
 })
 export class DashboardModule {}
