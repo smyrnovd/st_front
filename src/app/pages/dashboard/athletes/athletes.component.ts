@@ -23,13 +23,11 @@ export class AthletesComponent implements OnInit {
   activityValues: number[] = [0, 100];
 
   newAthleteDialog: boolean = false;
-
   deleteAthleteDialog: boolean = false;
-
   submitted: boolean = false;
-  toDate: string = new Date().toLocaleDateString();
   isSaveButtonDisabled: boolean = true;
   status: string[];
+  toDate: string = new Date().toLocaleDateString();
 
   constructor(
     private athleteService: AthleteService,
