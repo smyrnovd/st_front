@@ -1,5 +1,6 @@
 <div class="card">
   <p-toast></p-toast>
+
   <p-toolbar styleClass="mb-4">
     <ng-template pTemplate="left">
       <div class="my-2">
@@ -147,11 +148,15 @@
         </td>
 
         <td style="text-align: center">
+          <p-sidebar [(visible)]="athleteDetailDialog" [fullScreen]="true">
+            <h3>Athlete detail page</h3>
+          </p-sidebar>
           <button
+            (click)="athleteDetailDialog = true"
             pButton
             type="button"
             class="p-button-secondary"
-            icon="pi pi-cog"></button>
+            icon="pi pi-user-edit"></button>
         </td>
       </tr>
     </ng-template>

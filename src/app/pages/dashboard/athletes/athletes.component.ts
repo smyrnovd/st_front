@@ -15,7 +15,7 @@ export class AthletesComponent implements OnInit {
   selectedAthletes!: Athlete[];
 
   representatives!: Representative[];
-
+  athleteDetailDialog = false;
   statuses!: any[];
 
   loading: boolean = true;

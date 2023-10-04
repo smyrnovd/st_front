@@ -22,6 +22,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { ProductService } from 'src/app/shared/service/product.service';
 import { AthleteService } from 'src/app/shared/service/athlete.service';
 import { PaymentService } from 'src/app/shared/service/payment.service';
+import { SidebarModule } from 'primeng/sidebar';
 
 @NgModule({
   imports: [
@@ -42,6 +43,7 @@ import { PaymentService } from 'src/app/shared/service/payment.service';
     InputTextareaModule,
     InputNumberModule,
     DropdownModule,
+    SidebarModule,
   ],
   declarations: [DashboardComponent, AthletesComponent, PaymentsComponent],
   providers: [AthleteService, ProductService, PaymentService],
