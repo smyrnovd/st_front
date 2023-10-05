@@ -5,7 +5,6 @@ import { DashboardComponent } from './dashboard.component';
 import { ChartModule } from 'primeng/chart';
 import { MenuModule } from 'primeng/menu';
 import { TableModule } from 'primeng/table';
-import { ButtonModule } from 'primeng/button';
 import { StyleClassModule } from 'primeng/styleclass';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { DashboardsRoutingModule } from './dashboard-routing.module';
@@ -34,7 +33,6 @@ import { EventsComponent } from './events/events.component';
     TableModule,
     StyleClassModule,
     PanelMenuModule,
-    ButtonModule,
     DashboardsRoutingModule,
     CalendarModule,
     ToolbarModule,
