@@ -23,6 +23,7 @@ import { ProductService } from 'src/app/shared/service/product.service';
 import { AthleteService } from 'src/app/shared/service/athlete.service';
 import { PaymentService } from 'src/app/shared/service/payment.service';
 import { SidebarModule } from 'primeng/sidebar';
+import { EventsComponent } from './events/events.component';
 
 @NgModule({
   imports: [
@@ -45,7 +46,12 @@ import { SidebarModule } from 'primeng/sidebar';
     DropdownModule,
     SidebarModule,
   ],
-  declarations: [DashboardComponent, AthletesComponent, PaymentsComponent],
+  declarations: [
+    DashboardComponent,
+    AthletesComponent,
+    PaymentsComponent,
+    EventsComponent,
+  ],
   providers: [AthleteService, ProductService, PaymentService],
 })
 export class DashboardModule {}

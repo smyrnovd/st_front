@@ -23,6 +23,11 @@ export class AppMenuComponent implements OnInit {
             routerLink: ['/dashboard'],
           },
           {
+            label: 'Events',
+            icon: 'pi pi-fw pi-th-large',
+            routerLink: ['/dashboard/events'],
+          },
+          {
             label: 'Athletes',
             icon: 'pi pi-fw pi-user',
             routerLink: ['/dashboard/athletes'],
